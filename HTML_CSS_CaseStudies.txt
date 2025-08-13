@@ -1,0 +1,236 @@
+====================
+CASE STUDY 1: Travel Bliss
+====================
+
+<!-- Travel Bliss - index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Bliss - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Travel Bliss</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="booking.html">Booking</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <h2>Explore the World with Travel Bliss</h2>
+        <p>Your dream vacation is just a click away!</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Travel Bliss. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
+
+<!-- Travel Bliss - destinations.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Travel Bliss</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="booking.html">Booking</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <h2>Popular Destinations</h2>
+    <div class="grid">
+        <img src="img1.jpg" alt="Beach">
+        <img src="img2.jpg" alt="Mountains">
+        <img src="img3.jpg" alt="City">
+        <img src="img4.jpg" alt="Desert">
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 Travel Bliss. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
+
+<!-- Travel Bliss - booking.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Travel Bliss</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="booking.html">Booking</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <h2>Book Your Trip</h2>
+    <form>
+        <label>Name: <input type="text" required></label><br>
+        <label>Email: <input type="email" required></label><br>
+        <p>Travel Type:</p>
+        <label><input type="radio" name="type" value="solo"> Solo</label>
+        <label><input type="radio" name="type" value="family"> Family</label><br>
+        <p>Interests:</p>
+        <label><input type="checkbox" name="interest" value="adventure"> Adventure</label>
+        <label><input type="checkbox" name="interest" value="relax"> Relaxation</label><br>
+        <button type="submit">Submit</button>
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2025 Travel Bliss. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
+
+<!-- Travel Bliss - contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Travel Bliss</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="booking.html">Booking</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main>
+    <h2>Contact Us</h2>
+    <p>Email: info@travelbliss.com</p>
+    <p>Phone: +123456789</p>
+    <form>
+        <label>Name: <input type="text" required></label><br>
+        <label>Message:<br><textarea required></textarea></label><br>
+        <button type="submit">Send</button>
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2025 Travel Bliss. All rights reserved.</p>
+</footer>
+</body>
+</html>
+
+
+/* CSS FILE: style.css */
+/* Travel Bliss - style.css */
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+header, footer { background: #333; color: #fff; text-align: center; padding: 1em; }
+nav a { color: white; margin: 0 10px; text-decoration: none; }
+.hero { background: url('hero.jpg') center/cover; color: white; padding: 50px; text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; padding: 10px; }
+.grid img { width: 100%; height: auto; }
+form { padding: 10px; }
+@media (max-width: 600px) { nav { display: flex; flex-direction: column; } }
+
+
+====================
+CASE STUDY 2: EcoTour
+====================
+
+<!-- EcoTour - index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTour</title>
+    <link rel="stylesheet" href="eco_style.css">
+</head>
+<body>
+<header>
+    <h1>EcoTour</h1>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Explore Nature with EcoTour</h2>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>EcoTour helps you discover eco-friendly travel spots.</p>
+</section>
+
+<section id="gallery" class="grid">
+    <img src="eco1.jpg" alt="Forest">
+    <img src="eco2.jpg" alt="River">
+    <img src="eco3.jpg" alt="Wildlife">
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <form>
+        <label>Name: <input type="text" required></label><br>
+        <label>Email: <input type="email" required></label><br>
+        <p>Type:</p>
+        <label><input type="radio" name="visit" value="solo"> Solo</label>
+        <label><input type="radio" name="visit" value="group"> Group</label><br>
+        <button type="submit">Send</button>
+    </form>
+</section>
+
+<footer>
+    <p>Follow us:</p>
+    <a href="#">Facebook</a> | <a href="#">Instagram</a>
+</footer>
+</body>
+</html>
+
+
+/* CSS FILE: eco_style.css */
+/* EcoTour - eco_style.css */
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+header { background: green; color: white; padding: 10px; position: sticky; top: 0; }
+nav a { color: white; margin: 0 10px; text-decoration: none; }
+.hero { background: url('eco_hero.jpg') center/cover; color: white; padding: 50px; text-align: center; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; padding: 10px; }
+.grid img { width: 100%; height: auto; }
+form { padding: 10px; }
+footer { background: #333; color: white; text-align: center; padding: 10px; }
+@media (max-width: 600px) { nav { display: flex; flex-direction: column; } }
