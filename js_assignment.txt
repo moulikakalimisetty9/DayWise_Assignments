@@ -1,0 +1,475 @@
+// ========================= index.html =========================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PMS - Welcome</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-center">
+  <div class="container mt-5">
+    <h1>Welcome to Product Management System</h1>
+    <p class="lead">Manage and shop products seamlessly!</p>
+    <a href="login.html" class="btn btn-primary m-2">Login</a>
+    <a href="signup.html" class="btn btn-success m-2">Signup</a>
+  </div>
+</body>
+</html>
+
+// ========================= signup.html =========================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PMS - Signup</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h2>Signup</h2>
+    <form id="signupForm">
+      <div class="mb-3">
+        <label>Full Name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="mb-3">
+        <label>Password</label>
+        <input type="password" class="form-control" id="password" required>
+      </div>
+      <div class="mb-3">
+        <label>Role</label>
+        <select id="role" class="form-control">
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success">Signup</button>
+    </form>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
+
+// ========================= login.html =========================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PMS - Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="email" class="form-control" id="loginEmail" required>
+      </div>
+      <div class="mb-3">
+        <label>Password</label>
+        <input type="password" class="form-control" id="loginPassword" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
+
+// ========================= admin-dashboard.html =========================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand ms-3" href="#">Admin Dashboard</a>
+    <div class="ms-auto me-3">
+      <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+  <div class="container mt-4">
+    <h3>Add Product</h3>
+    <form id="productForm">
+      <input type="hidden" id="productId">
+      <div class="mb-3"><input type="text" class="form-control" id="pname" placeholder="Product Name" required></div>
+      <div class="mb-3"><input type="text" class="form-control" id="pdesc" placeholder="Description" required></div>
+      <div class="mb-3"><input type="number" class="form-control" id="pprice" placeholder="Price" required></div>
+      <div class="mb-3"><input type="text" class="form-control" id="pimage" placeholder="Image URL"></div>
+      <button type="submit" class="btn btn-success">Save Product</button>
+    </form>
+    <h3 class="mt-5">Product List</h3>
+    <table class="table" id="productTable">
+      <thead>
+        <tr><th>Name</th><th>Description</th><th>Price</th><th>Actions</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
+
+// ========================= user-dashboard.html =========================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand ms-3" href="#">User Dashboard</a>
+    <div class="ms-auto me-3">
+      <a href="cart.html" class="btn btn-warning">Cart (<span id="cartCount">0</span>)</a>
+      <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+  <div class="container mt-4">
+    <h3>Available Products</h3>
+    <div class="row" id="userProductList"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
+
+// ========================= cart.html =========================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand ms-3" href="user-dashboard.html">Cart</a>
+    <div class="ms-auto me-3">
+      <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+  <div class="container mt-4">
+    <h3>Your Cart</h3>
+    <table class="table" id="cartTable">
+      <thead>
+        <tr><th>Name</th><th>Price</th><th>Remove</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <h4>Total: $<span id="totalPrice">0</span></h4>
+    <button class="btn btn-success mt-2" onclick="checkout()">Checkout</button>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
+
+// ========================= style.css =========================
+body { background: #f9f9f9; }
+h1, h2, h3 { text-align: center; }
+.card { margin: 10px; padding: 10px; }
+
+// ========================= app.js (API version) =========================
+// ================== CONFIG ==================
+const API_URL = "http://localhost:3000";
+
+// ---- helpers ----
+async function api(path, options = {}) {
+  const res = await fetch(`${API_URL}${path}`, {
+    headers: { "Content-Type": "application/json" },
+    ...options
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`API ${res.status}: ${text || res.statusText}`);
+  }
+  return res.json();
+}
+function saveSession(user) {
+  localStorage.setItem("loggedIn", JSON.stringify(user));
+}
+function getSession() {
+  return JSON.parse(localStorage.getItem("loggedIn") || "null");
+}
+function clearSession() {
+  localStorage.removeItem("loggedIn");
+}
+function byId(id) { return document.getElementById(id); }
+
+// ================== AUTH ==================
+// SIGNUP
+const signupForm = byId("signupForm");
+if (signupForm) {
+  signupForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const payload = {
+      name: byId("name").value.trim(),
+      email: byId("email").value.trim(),
+      password: byId("password").value, // demo only (plain text)
+      role: byId("role").value
+    };
+    // prevent duplicate emails
+    const existing = await api(`/users?email=${encodeURIComponent(payload.email)}`);
+    if (existing.length) return alert("Email already registered.");
+
+    await api("/users", { method: "POST", body: JSON.stringify(payload) });
+    alert("Signup successful!");
+    location.href = "login.html";
+  });
+}
+
+// LOGIN
+const loginForm = byId("loginForm");
+if (loginForm) {
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = byId("loginEmail").value.trim();
+    const password = byId("loginPassword").value;
+
+    const users = await api(`/users?email=${encodeURIComponent(email)}`);
+    const user = users.find(u => u.password === password);
+    if (!user) return alert("Invalid email or password.");
+
+    saveSession(user);
+    if (user.role === "admin") location.href = "admin-dashboard.html";
+    else location.href = "user-dashboard.html";
+  });
+}
+
+// LOGOUT (used by buttons in nav)
+function logout() {
+  clearSession();
+  location.href = "login.html";
+}
+window.logout = logout; // expose to HTML onclick
+
+// ================== ADMIN: PRODUCTS CRUD ==================
+const productForm = byId("productForm");
+async function loadProductsAdmin() {
+  const tableBody = document.querySelector("#productTable tbody");
+  if (!tableBody) return;
+  const products = await api("/products");
+  tableBody.innerHTML = products.map(p => `
+    <tr>
+      <td>${p.name}</td>
+      <td>${p.description}</td>
+      <td>$${Number(p.price).toFixed(2)}</td>
+      <td>
+        <button class="btn btn-sm btn-primary" onclick="editProduct(${p.id})">Edit</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteProduct(${p.id})">Delete</button>
+      </td>
+    </tr>
+  `).join("");
+}
+
+if (productForm) {
+  productForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const id = byId("productId").value;
+    const payload = {
+      name: byId("pname").value.trim(),
+      description: byId("pdesc").value.trim(),
+      price: Number(byId("pprice").value),
+      image: byId("pimage").value.trim()
+    };
+    if (!payload.name || !payload.description || isNaN(payload.price)) {
+      return alert("Please fill all product fields correctly.");
+    }
+
+    if (id) {
+      await api(`/products/${id}`, { method: "PATCH", body: JSON.stringify(payload) });
+      alert("Product updated.");
+    } else {
+      await api("/products", { method: "POST", body: JSON.stringify(payload) });
+      alert("Product added.");
+    }
+    productForm.reset();
+    await loadProductsAdmin();
+  });
+}
+
+async function editProduct(id) {
+  const p = await api(`/products/${id}`);
+  byId("productId").value = p.id;
+  byId("pname").value = p.name;
+  byId("pdesc").value = p.description;
+  byId("pprice").value = p.price;
+  byId("pimage").value = p.image || "";
+}
+window.editProduct = editProduct;
+
+async function deleteProduct(id) {
+  if (!confirm("Delete this product?")) return;
+  await api(`/products/${id}`, { method: "DELETE" });
+  await loadProductsAdmin();
+}
+window.deleteProduct = deleteProduct;
+
+// kick off admin list if on that page
+loadProductsAdmin();
+
+// ================== USER: PRODUCT LIST + CART ==================
+const userProductList = byId("userProductList");
+const cartCountEl = byId("cartCount");
+
+async function ensureUserCart(userId) {
+  const carts = await api(`/carts?userId=${userId}`);
+  if (carts.length) return carts[0];
+  // create if not exists
+  return api("/carts", { method: "POST", body: JSON.stringify({ userId, items: [] }) });
+}
+
+async function getCart(userId) {
+  const carts = await api(`/carts?userId=${userId}`);
+  return carts[0] || null;
+}
+
+async function setCartItems(cartId, items) {
+  await api(`/carts/${cartId}`, { method: "PATCH", body: JSON.stringify({ items }) });
+}
+
+async function updateCartCount() {
+  const session = getSession();
+  if (!session || !cartCountEl) return;
+  const cart = await getCart(session.id);
+  cartCountEl.textContent = cart ? cart.items.length : 0;
+}
+
+async function renderUserProducts() {
+  if (!userProductList) return;
+  const products = await api("/products");
+  userProductList.innerHTML = products.map(p => `
+    <div class="col-md-3">
+      <div class="card">
+        <img src="${p.image || 'https://via.placeholder.com/300x200?text=Product'}" class="card-img-top" alt="${p.name}">
+        <div class="card-body">
+          <h5>${p.name}</h5>
+          <p>${p.description}</p>
+          <p><b>$${Number(p.price).toFixed(2)}</b></p>
+          <button class="btn btn-primary" onclick="addToCart(${p.id})">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  `).join("");
+}
+
+async function addToCart(productId) {
+  const session = getSession();
+  if (!session) return location.href = "login.html";
+  const cart = await ensureUserCart(session.id);
+  const items = Array.from(cart.items || []);
+  items.push(productId);
+  await setCartItems(cart.id, items);
+  await updateCartCount();
+  alert("Added to cart.");
+}
+window.addToCart = addToCart;
+
+renderUserProducts().catch(console.error);
+updateCartCount().catch(console.error);
+
+// ================== CART PAGE ==================
+async function renderCartPage() {
+  const cartTableBody = document.querySelector("#cartTable tbody");
+  const totalEl = byId("totalPrice");
+  if (!cartTableBody || !totalEl) return;
+
+  const session = getSession();
+  if (!session) return location.href = "login.html";
+
+  const cart = await ensureUserCart(session.id);
+  const ids = cart.items || [];
+  const products = await api("/products");
+
+  let total = 0;
+  cartTableBody.innerHTML = ids.map(pid => {
+    const p = products.find(x => x.id === pid);
+    if (!p) return "";
+    total += Number(p.price) || 0;
+    return `
+      <tr>
+        <td>${p.name}</td>
+        <td>$${Number(p.price).toFixed(2)}</td>
+        <td><button class="btn btn-danger btn-sm" onclick="removeFromCart(${pid})">X</button></td>
+      </tr>
+    `;
+  }).join("");
+
+  totalEl.textContent = total.toFixed(2);
+}
+
+async function removeFromCart(productId) {
+  const session = getSession();
+  const cart = await ensureUserCart(session.id);
+  const items = (cart.items || []).filter(id => id !== productId);
+  await setCartItems(cart.id, items);
+  await renderCartPage();
+  await updateCartCount();
+}
+window.removeFromCart = removeFromCart;
+
+async function checkout() {
+  const session = getSession();
+  const cart = await ensureUserCart(session.id);
+  if (!cart.items || cart.items.length === 0) return alert("Your cart is empty.");
+  // In a real app you'd create an order on the server. For demo, clear the cart:
+  await setCartItems(cart.id, []);
+  await renderCartPage();
+  await updateCartCount();
+  alert("Order placed successfully!");
+}
+window.checkout = checkout;
+renderCartPage().catch(() => {});
+
+============================db.json=============
+
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin User",
+      "email": "admin@pms.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Regular User",
+      "email": "user@pms.com",
+      "password": "user123",
+      "role": "user"
+    }
+  ],
+  "products": [
+    {
+      "id": 101,
+      "name": "Smartphone",
+      "description": "Latest model with advanced features",
+      "price": 699,
+      "image": "https://via.placeholder.com/300x200?text=Smartphone"
+    }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "userId": 2,
+      "items": [101]   // product IDs
+    }
+  ]
+}
+
