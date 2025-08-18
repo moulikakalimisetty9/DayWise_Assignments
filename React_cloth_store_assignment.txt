@@ -1,0 +1,118 @@
+=================== App.js ====================
+
+import './App.css';
+import First from './components/First';
+function App() {
+  return (
+    <div className="App">
+      <First />
+    </div>
+  );
+}
+
+export default App;
+
+==================== First.js =================
+
+import React from 'react'
+import './first.css';
+const First = () => {
+    const products = [
+    {
+      productId: 101,
+      productName: "T-Shirt",
+      description: "Cotton material",
+      price: 499,
+      sizes: ["S", "M", "L", "XL"],
+    },
+    {
+      productId: 102,
+      productName: "Jeans",
+      description: "Slim fit denim",
+      price: 1299,
+      sizes: ["M", "L", "XL"],
+    },
+    {
+      productId: 103,
+      productName: "Jacket",
+      description: "Winter collection",
+      price: 2499,
+      sizes: ["L", "XL"],
+    },
+  ];
+  return (
+    <div className="container">
+      <h1>Cloth Store Listing</h1>
+
+      {products.length > 0 ? (
+        <table>
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Product Name</th>
+              <th>Description</th>
+              <th>Price (₹)</th>
+              <th>Available Sizes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((product) => (
+              <tr key={product.productId}>
+                <td>{product.productId}</td>
+                <td>{product.productName}</td>
+                <td>{product.description}</td>
+                <td className="price">₹{product.price}</td>
+                <td>{product.sizes.join(", ")}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p className="no-products">No Products Available</p>
+      )}
+    </div>
+  )
+}
+
+export default First
+
+======================== First.css ==================
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+.price {
+  text-align: right;
+  font-weight: bold;
+}
+
+.no-products {
+  color: red;
+  font-size: 18px;
+  margin-top: 20px;
+}
